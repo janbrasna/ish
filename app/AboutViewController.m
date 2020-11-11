@@ -54,14 +54,6 @@
     [prefs addObserver:self forKeyPath:@"bootCommand" options:opts context:nil];
 }
 
-- (void)dealloc {
-    UserPreferences *prefs = [UserPreferences shared];
-    [prefs removeObserver:self forKeyPath:@"capsLockMapping"];
-    [prefs removeObserver:self forKeyPath:@"fontSize"];
-    [prefs removeObserver:self forKeyPath:@"launchCommand"];
-    [prefs removeObserver:self forKeyPath:@"bootCommand"];
-}
-
 - (void)exitRecovery:(id)sender {
     [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"recovery"];
     exit(0);
